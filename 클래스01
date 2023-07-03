@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _00PApp003
+{
+    class Cat
+    {
+        public string Name;
+        public string Color;
+        public string Age;
+
+        //생성자
+        public Cat()    //디폴트생성자
+        {
+            //초기값
+            this.Name = "야옹이";
+            this.Age = "5";
+            this.Color = "살구색";
+        }
+
+
+        public void A()
+        {
+            Console.WriteLine("야옹");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Cat mimi = new Cat();
+            //t생성 후 초기화
+            mimi.Color = "파랑색";
+            mimi.Age = "1";
+
+            Console.WriteLine($"미미의 이름은 {mimi.Name}, 미미의 나이는 {mimi.Age}살");
+
+        }
+    }
+}
