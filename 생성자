@@ -1,0 +1,28 @@
+using System.Diagnostics;
+
+namespace MyApp034
+{
+    class Calculator
+    {
+        //1.멤버변수
+        private string x;
+        //2.생성자
+        // ~디폴드 생성자는 안 만들면 자동으로 만들어진다.
+        // ~단, 인자가 있는 생성자가 1개라도 있으면 자동으로 만들어지지 않는다.
+        public Calculator() { }
+        public Calculator(string _x)
+        {
+            x = _x;
+        }
+        //3.멤버메소드
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator cal = new Calculator();
+            Calculator cal2 = new Calculator("홍길동");
+        }
+        //3.멤버 메소드
+    }
+}
