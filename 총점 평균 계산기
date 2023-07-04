@@ -1,0 +1,31 @@
+using System;
+
+namespace MyApp035
+{
+    class Calulator
+    {
+        public int executeTotalScore(int x, int y, int z)
+        {
+            return x + y + z;
+        }
+        public double excuteAvg(int x, int y, int z)
+        {
+            return (double)(x + y + z) / 3;
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Calulator calulator = new Calulator();
+            Console.Write("국어:");
+            int kor = int.Parse(Console.ReadLine());
+            Console.Write("영어");
+            int eng = int.Parse(Console.ReadLine());
+            Console.Write("수학");
+            int math = int.Parse(Console.ReadLine());
+            Console.WriteLine($"총점: {calulator.executeTotalScore(kor, eng, math)}");
+            Console.WriteLine($"평균: {calulator.excuteAvg(kor, eng, math)}");    
+        }
+    }
+}
