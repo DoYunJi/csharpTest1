@@ -1,0 +1,29 @@
+using System;
+
+namespace MyApp053
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //소수구하기
+            int cnt = 0; //나누어떨어지는수
+            for (int i = 1; i <= 100; i++)
+            {
+                cnt = 0; //for문 한 번 돌때마다 cnt 0으로 초기화
+
+                for (int j = 1; j <= i; j++)
+                {
+                    if (i % j == 0) //약수가 생기면 카운트 증가
+                    {
+                        cnt++;
+                    }
+                }
+                if (cnt == 2)
+
+                    Console.WriteLine(i + " ");
+            }
+
+        }
+    }
+}
