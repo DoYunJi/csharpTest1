@@ -1,0 +1,94 @@
+using Microsoft.CSharp;
+
+using System;
+
+using System.Collections.Generic;
+
+using System.Configuration;
+
+using System.Data.SqlClient;
+
+using System.Linq;
+
+using System.Runtime.CompilerServices;
+
+using System.Runtime.InteropServices;
+
+using System.Text;
+
+using System.Threading.Tasks;
+
+
+
+namespace MyApp077
+
+{
+
+    internal class Program
+
+    {
+
+        static int CharCounter(string arr, char ch)
+
+        {
+
+            int N = 0;
+
+            for(int i =0; i<arr.Length; i++)
+
+            {
+
+                if(arr[i] == ch )
+
+                {
+
+                    N++;
+
+                }
+
+            }
+
+            return N;
+
+        }
+
+        static void Main(string[] args)
+
+        {
+
+            //1.문자열입력
+
+            Console.Write("문자열입력:");
+
+            string str = Console.ReadLine();
+
+            //2.문자입력
+
+            Console.Write("문자 입력:");
+
+           
+
+            //char c = str2[0];
+
+            char str2 = char.Parse(Console.ReadLine());
+
+            
+
+
+
+            int result = CharCounter(str, str2);
+
+            Console.WriteLine("결과: " + result);
+
+            
+
+
+
+            
+
+        }
+
+    }
+
+}
+
