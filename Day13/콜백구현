@@ -1,0 +1,31 @@
+using System;
+
+namespace MyApp081
+{
+    internal class Program
+    {
+        delegate int MyDelegate(int a, int b);
+        class Calculator
+        {
+            public int Plus(int a, int b)
+            {
+                return a + b;
+            }
+            public int Minus(int a, int b)
+            {
+                return (a - b);
+            }
+        }
+        static void Main(string[] args)
+        {
+            Calculator Calc = new Calculator();
+            MyDelegate CallBack;
+
+            CallBack = new MyDelegate(Calc.Plus);  //콜백이 더하기 기능이 됨.
+            Console.WriteLine (CallBack(5, 10));
+
+            CallBack = new MyDelegate(Calc.Minus);
+            Console.WriteLine(CallBack(5, 10));
+        }
+    }
+}
