@@ -1,0 +1,31 @@
+#DEPT 테이블의 내용을 복사한 테이블 DEPT_COPY 테이블을 만들라
+CREATE TABLE DEPT_COPY AS SELECT * FROM DEPT;
+#DEPT 테이블의 내용을 복사하지 않고 구조만 복사한 테이블 DEPT_COPY2를 만들어보자~
+CREATE TABLE DEPT_COPY2 AS SELECT * FROM DEPT WHERE 1 <> 1;
+
+SELECT * FROM DEPT_COPY2;
+#DEPT_COPY2 테이블에 (1, '홍길동', '안동')
+#내용을 삽입(INSERT)해 주세요
+DESC DEPT_COPY2;
+
+INSERT INTO DEPT_COPY2 (DEPTNO, DNAME, LOC)
+VALUES (1, '홍길동', '안동');
+
+#2, 이순신, 통영
+INSERT INTO DEPT_COPY2
+VALUES (2, '이순신', '통영');
+
+INSERT INTO DEPT_COPY2
+VALUES (3, '강감찬','평양');
+
+SELECT * FROM DEPT_COPY2;
+
+COMMIT;
+
+#UPDATE 강감찬 장군의 지역을 '서울'로 변경
+UPDATE DEPT_COPY2 SET LOC = '서울'
+WHERE DEPTNO = 3;
+
+ROLLBACK;
+
+COMMIT;
