@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MyApp143
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int a, iSutja;
+            Double dSum = 0;
+
+            iSutja = int.Parse(textBox1.Text);
+
+            textBox2.Text = "";
+
+            for (a = 1; a <= iSutja; ++a) 
+            {
+                dSum = dSum + a;
+                textBox2.Text = textBox2.Text + a + " + ";
+            }
+            textBox2.Text = textBox2.Text + " = " + dSum;
+        }
+    }
+}
