@@ -73,7 +73,7 @@ namespace MyApp188
             }
             else
             {
-                richTextBox1.AppendText("연결성공~\n");
+                richTextBox1.AppendText(text);
             }
         }
     }
