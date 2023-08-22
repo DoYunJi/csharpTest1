@@ -1,0 +1,48 @@
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApplication13.Controllers
+{
+    public class HomeController : Controller
+    {
+        [Route("/")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(double height, double weight, string sex)
+        {
+            double basic;
+            double pibw = 0;
+            height = height * 0.01;
+            if (sex == "여성")
+            {
+                basic = height * height * 21;
+                pibw = (weight / basic) * 100;
+            }
+            if(sex == "남성")
+            {
+                basic = height * height * 22;
+                pibw = (weight/ basic) * 100;
+            }
+
+            if (pibw >= 160)
+                ViewBag.Result = "고도비만";
+            else if (pibw >= 130)
+                ViewBag.Result = "중정도 비만";
+            else if (pibw >= 120)
+                ViewBag.Result = "경도 비만";
+            else if (pibw >= 110)
+                ViewBag.Result = "과체중";
+            else if (pibw >= 90)
+            {
+                ViewBag.Result = "정상체중";
+            }
+            else
+                ViewBag.Result = "저체중";
+
+            return View();
+        }
+     
+    }
+}
