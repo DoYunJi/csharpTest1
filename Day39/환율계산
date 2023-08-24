@@ -1,0 +1,100 @@
+-program.cs
+-----------------------
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();
+
+-HomeController.cs
+---------------------
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using System.Runtime.Intrinsics;
+using WebApplication17.Models;
+
+namespace WebApplication17.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+        public IActionResult Index(double v1)
+        {
+            ViewBag.Result1 = Math.Round(v1 / 1340.0, 2);
+            ViewBag.Result2 = Math.Round(v1 / (921.18 / 100), 1);
+            ViewBag.Result3 = Math.Round(v1 / 1449.75, 1);
+            ViewBag.Result4 = Math.Round(v1 / 183.69, 1);
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult Result() 
+        {
+            
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
+
+-Index.cshtml*
+---------------------------
+
+    ViewData["Title"] = "Home Page";
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+<h1>환율계산기(\)</h1>
+<div>
+    <form method="post">
+        <label for="v1">금액을 입력하시오</label>
+        <input type="number" class=" form-control" name="v1" value="v1" />
+        <br />
+        <input type="submit" value="계산" />
+    </form>
+    @if ((ViewBag.Result1 != null) && (ViewBag.Result2 != null) && (ViewBag.Result3 != null) && (ViewBag.Result4 != null))
+    {
+        <h3>@ViewBag.Result1 달러</h3>
+        <h3>@ViewBag.Result2 엔화</h3>
+        <h3>@ViewBag.Result3 유로</h3>
+        <h3>@ViewBag.Result4 위엔화</h3>
+    }
+</div>
